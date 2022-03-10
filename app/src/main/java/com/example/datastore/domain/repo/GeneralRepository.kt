@@ -2,7 +2,6 @@ package com.example.datastore.domain.repo
 
 import android.content.Context
 import com.example.datastore.data.preferences.PreferenceStorage
-import com.example.datastore.utils.PreferenceConstants
 
 class GeneralRepository(
     private val preferenceStorage: PreferenceStorage
@@ -21,8 +20,7 @@ class GeneralRepository(
 
     }
 
-    fun storeName(name : String) = preferenceStorage.storeName(name)
+    suspend fun storeName(name : String) = preferenceStorage.storeName(name)
 
-    fun getName() : String? = preferenceStorage.getName()
-
+    fun getName() = preferenceStorage.getName()
 }
